@@ -9,6 +9,7 @@ body {
 	width: 100vw;
 	background: linear-gradient(33deg, rgb(26, 214, 192), rgb(185, 19, 218));
 	margin-left: 10px;
+	overflow: hidden;
 }
 
 label,
@@ -18,8 +19,9 @@ span {
 
 input {
 	font-family: "Comfortaa", cursive;
-	font-size: 20px;
-	height: 25px;
+	font-size: 20px !important;
+	height: 25px !important;
+	text-align: start !important;
 }
 
 .bn33 {

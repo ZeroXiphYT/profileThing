@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random SQL Thing...</title>
+</head>
+<body>
+    <h1>Hello world</h1>
+    <input id="fName">
+    <input id="lName">
+    <button id="seeOrders">See Orders</button>
+    <div id="orderCountDiv"><span id="orderCountSpan">Order Count Will Appear Here</span></div>
+    <script>
+        const fNameInp = document.getElementById('fName')
+        const lNameInp = document.getElementById('lName')
+        const seeOrderBtn = document.getElementById('seeOrders')
+        const orderSpan = document.getElementById('orderCountSpan')
+
+        seeOrderBtn.addEventListener('click', async function(){
+            var data = { fName: fNameInp.value, lName: lNameInp.value }
+            var response = await fetch('/viewOrderCount', {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(data)
+            })
+            var data = await response.json();
+            var { ordercount, firstName, lastName } = data;
+            var fullName = firstName+" "+lastName
+            console.log(data)
+            orderSpan.innerHTML = ""
+            var h1 = document.createElement('h1');
+            h1.innerHTML = `${fullName} has ${ordercount} orders`
+            orderSpan.appendChild(h1)
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,62 @@
+:root {
+	--fade-in-time: 1s;
+}
+
+body {
+	height: 100vh;
+	width: 100vw;
+	background: linear-gradient(33deg, rgb(26, 214, 192), rgb(185, 19, 218));
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+button,
+a {
+	margin-top: 25px;
+	font-size: 21px;
+	text-align: center;
+	animation: fadein var(--fade-in-time);
+	-moz-animation: fadein var(--fade-in-time); /* Firefox */
+	-webkit-animation: fadein var(--fade-in-time); /* Safari and Chrome */
+	-o-animation: fadein var(--fade-in-time); /* Opera */
+}
+@keyframes fadein {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
+@-moz-keyframes fadein {
+	/* Firefox */
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
+@-webkit-keyframes fadein {
+	/* Safari and Chrome */
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
+@-o-keyframes fadein {
+	/* Opera */
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
+
+a:hover {
+	background-image: linear-gradient(rgb(0 0 0/40%) 0 0);
+}

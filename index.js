@@ -7,6 +7,7 @@ const jsonParser = bodyParser.json();
 require('dotenv').config();
 
 const app = express();
+app.use(express.static(__dirname + '/public'));
 app.set('view engine', 'ejs');
 
 const pool = new Pool({
@@ -23,13 +24,12 @@ app.get('/', (req, res) => {
 });
 
 app.post('/viewOrderCount', jsonParser, (req, res) => {
-    const firstName = req.body.fName;
-    const lastName = req.body.lName;
+    const firstName = req.body.fName.toLowerCase();
+    const lastName = req.body.lName.toLowerCase();
     const userId = req.body.userId;
-
     console.log(req.body);
 
-    var sentence = `SELECT ordercount FROM people WHERE firstname = '${firstName}' AND lastname = '${lastName}' AND personid = '${userId}';`;
+    var sentence = `SELECT ordercount FROM people WHERE firstname = '${firstName}' AND lastname = '${lastName}' AND personid = ${userId};`;
 
     pool.query(sentence, (err, result) => {
         if (result.rowCount === 0) {
@@ -51,9 +51,33 @@ app.post('/viewOrderCount', jsonParser, (req, res) => {
 });
 
 app.post('/createPerson', jsonParser, (req, res) => {
-    const firstName = req.fName;
-    const lastName = req.lName;
+    var firstName = req.body.fName;
+    var lastName = req.body.lName;
+    var orderNum = req.body.orderNum;
 
+    var sentence = `
+        SELECT personid FROM people
+        ORDER BY personid DESC
+        LIMIT 1;
+    `;
+
+    pool.query(sentence, (err, result) => {
+        console.table(result.rows);
+        var lastPersonid = result.rows[0].personid;
+        var newPersonId = lastPersonid + 1;
+        sentence = `
+            INSERT INTO people VALUES (${newPersonId}, '${lastName}', '${firstName}', ${orderNum});
+        `;
+        pool.query(sentence, (error, resultJ) => {
+            console.table(resultJ.rows);
+            res.send({
+                fName: firstName,
+                lName: lastName,
+                orderCount: orderNum,
+                userId: newPersonId
+            });
+        });
+    });
 });
 
 //pages

@@ -1,12 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Create A User Page</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/createUser.css">
 </head>
+
 <body>
-    
+    <br><br>
+    <label for="fName">First Name:</label>
+    <input type="text" id="fName">
+    <br><br>
+    <label for="lName">Last Name:</label>
+    <input type="text" id="lName">
+    <br><br>
+    <label for="orderNumber">Order Count:</label>
+    <input type="number" id="orderNumber">
+    <br><br>
+    <a><button id="makeUserBtn" class="bn33">Make User!</button></a>
+    <br><br>
+    <div id="userCreatedDiv"><span id="userCreateSpan">Your user will appear here</span></div>
+    <br>
+    <a class="btn btn-secondary" href="/seeMainPage">Go back</a>
+    <script>
+        const fNameInp = document.getElementById('fName');
+        const lNameInp = document.getElementById('lName');
+        const orderInp = document.getElementById('orderNumber');
+        const makeBtn = document.getElementById('makeUserBtn');
+        const createSpan = document.getElementById('userCreateSpan');
+
+        makeBtn.addEventListener('click', async function () {
+            if(fNameInp.value.trim().length === 0 || lNameInp.value.trim().length === 0 || orderInp.value.trim().length === 0 ) {
+                var h1 = document.createElement('h1');
+                h1.style.color = 'maroon'
+                h1.innerHTML = `Enter actual values into the input boxes`;
+                createSpan.appendChild(h1);
+                return
+            };
+            var data = { fName: fNameInp.value, lName: lNameInp.value, orderNum: orderInp.value };
+            console.log(data);
+            var response = await fetch('/createPerson', {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(data)
+            });
+            var data = await response.json();
+            console.log(data);
+            const { fName, lName, orderCount, userId } = data;
+            var h1 = document.createElement('h1');
+            h1.style.color = 'black'
+            h1.innerHTML = `The User <span style="color: red;">${fName} ${lName}</span> has been created with the orderCount of <span style="color: red;">${orderCount}</span>, VERY IMPORTANT: USER ID = <span style="color: red;">${userId}</span> DO NOT FORGET IT, you will need it to access everything`;
+            createSpan.innerHTML = ""
+            createSpan.appendChild(h1);
+
+        })
+
+    </script>
 </body>
+
 </html>

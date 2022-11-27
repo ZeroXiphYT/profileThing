@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Something</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.6.14/dist/sweetalert2.all.min.js"></script>
+    <link rel="stylesheet" href="/css/createOrderPage.css">
+    <script src="/js/createOrderPage.js" defer></script>
+</head>
+
+<body>
+    <label for="spiciness">🌶 (spiciness) level: </label>
+    <select id="spiciness">
+        <option selected value="none">No spiciness</option>
+        <option value="mild">Mild spiciness</option>
+        <option value="spicy">Spicy</option>
+        <option value="very spicy">Very Spicy</option>
+    </select>
+    <br>
+    <label for="food">Food (🍔): </label>
+    <select id="food">
+        <option selected value="pizza">Pizza</option>
+        <option value="burger">Burger</option>
+        <option value="fries">French Fries</option>
+        <option value="hot dog">Hot Dog</option>
+        <option value="butter chicken">Butter Chicken</option>
+        <option value="chicken tikka masala">Chicken tikka masala</option>
+        <option value="fruit salad">Fruit Salad</option>
+        <option value="noodles">Noodles</option>
+        <option value="rice">Rice</option>
+    </select>
+    <br>
+    <label for="sauce">Sauce: </label>
+    <select id="sauce">
+        <option selected value="none">None</option>
+        <option value="ketchup">Ketchup</option>
+        <option value="ranch">Ranch</option>
+        <option value="hot sauce">Hot sauce</option>
+        <option value="mustard">Mustard</option>
+        <option value="soy sauce">Soy sauce</option>
+        <option value="marinara sauce">Marinara sauce</option>
+    </select>
+    <br>
+    <label for="topping1">Topping 1: </label>
+    <select id="topping1">
+        <option selected value="none">None</option>
+        <option value="olive">Olives</option>
+        <option value="cheese">Cheese</option>
+        <option value="ham">Ham</option>
+        <option value="beef">Beef</option>
+        <option value="onion">Onion</option>
+        <option value="bell pepper">Bell Pepper</option>
+        <option value="mushroom">Mushroom</option>
+    </select>
+    <br>
+    <label for="topping2">Topping 2: </label>
+    <select id="topping2">
+        <option selected value="none">None</option>
+        <option value="olive">Olives</option>
+        <option value="cheese">Cheese</option>
+        <option value="ham">Ham</option>
+        <option value="beef">Beef</option>
+        <option value="onion">Onion</option>
+        <option value="bell pepper">Bell Pepper</option>
+        <option value="mushroom">Mushroom</option>
+    </select>
+    <br>
+    <label for="topping3">Topping 3: </label>
+    <select id="topping3">
+        <option selected value="none">None</option>
+        <option value="olive">Olives</option>
+        <option value="cheese">Cheese</option>
+        <option value="ham">Ham</option>
+        <option value="beef">Beef</option>
+        <option value="onion">Onion</option>
+        <option value="bell pepper">Bell Pepper</option>
+        <option value="mushroom">Mushroom</option>
+    </select>
+    <br><br>
+    <label for="fName">First Name: </label>
+    <input type="text" id="fName">
+    <br>
+    <label for="lName">Last Name: </label>
+    <input type="text" id="lName">
+    <br>
+    <label for="userId">User Id: </label>
+    <input type="number" id="userId">
+    <br>
+    <a><button id="orderFoodBtn" class="bn33">Order Food! 😋</button></a>
+    <br>
+    <div id="orderSuccessDiv"><span id="orderSuccessSpan">Result will appear here</span></div>
+    <br>
+    <a class="btn btn-secondary" href="/seeMainPage">Go back</a>
+</body>
+
+</html>

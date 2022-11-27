@@ -1,5 +1,7 @@
 const orderLink = document.getElementById('orderLink');
 const createLink = document.getElementById('createLink');
+const createOrderLink = document.getElementById('createOrderLink');
+const userOrderLink = document.getElementById('userOrderLink');
 
 var colorArray = ["primary", "secondary", "success", "info", "dark"];
 
@@ -13,3 +15,5 @@ function setRandomClass(element, colorArray) {
 
 setRandomClass(orderLink, colorArray);
 setRandomClass(createLink, colorArray);
+setRandomClass(createOrderLink, colorArray);
+setRandomClass(userOrderLink, colorArray);

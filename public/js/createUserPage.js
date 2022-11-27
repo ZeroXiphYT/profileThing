@@ -12,7 +12,7 @@ makeBtn.addEventListener('click', async function () {
         createSpan.appendChild(h1);
         return;
     };
-    var data = { fName: fNameInp.value, lName: lNameInp.value, orderNum: orderInp.value };
+    var data = { fName: fNameInp.value.toLowerCase(), lName: lNameInp.value.toLowerCase(), orderNum: orderInp.value };
     console.log(data);
     var response = await fetch('/createPerson', {
         method: "POST",

@@ -1,0 +1,143 @@
+@import url("https://fonts.googleapis.com/css2?family=Comfortaa&display=swap");
+
+:root {
+	--fade-in-time: 1s;
+}
+
+* {
+	font-family: "Comfortaa", cursive;
+	overflow-y: auto !important;
+}
+
+.styled-table {
+	border-collapse: collapse;
+	margin: 25px 0;
+	font-size: 0.9em;
+	font-family: sans-serif;
+	min-width: 400px;
+	box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+	font-family: "Comfortaa", cursive;
+}
+
+.styled-table thead tr {
+	background-color: #009879;
+	color: #ffffff;
+	text-align: left;
+}
+
+.styled-table th,
+.styled-table td {
+	padding: 12px 15px;
+}
+
+.styled-table tbody tr {
+	border-bottom: 1px solid #dddddd;
+}
+
+.styled-table tbody tr:nth-of-type(even) {
+	background-color: #f3f3f3;
+}
+
+.styled-table tbody tr:last-of-type {
+	border-bottom: 2px solid #009879;
+}
+
+.styled-table tbody tr.active-row {
+	font-weight: normal;
+	color: #009879;
+}
+
+body {
+	height: 100vh;
+	width: 100vw;
+	background: linear-gradient(33deg, rgb(26, 214, 192), rgb(185, 19, 218));
+	margin-left: 10px;
+	overflow: hidden;
+}
+
+label,
+span {
+	font-family: "Comfortaa", cursive;
+}
+
+input {
+	font-family: "Comfortaa", cursive;
+	font-size: 20px !important;
+	height: 25px !important;
+	text-align: start !important;
+}
+
+.bn33 {
+	border: none;
+	cursor: pointer;
+	outline: none;
+	font-size: 16px;
+	-webkit-transform: translate(0);
+	transform: translate(0);
+	background-image: linear-gradient(45deg, #256d7b, #317f43);
+	padding: 0.7em 2em;
+	border-radius: 1px;
+	color: white;
+}
+
+a,
+a:visited {
+	color: white;
+	font-size: 18px;
+}
+
+*:not(html) {
+	margin-top: 25px;
+	font-size: 21px;
+	text-align: center;
+	animation: fadein var(--fade-in-time);
+	-moz-animation: fadein var(--fade-in-time); /* Firefox */
+	-webkit-animation: fadein var(--fade-in-time); /* Safari and Chrome */
+	-o-animation: fadein var(--fade-in-time); /* Opera */
+}
+@keyframes fadein {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
+@-moz-keyframes fadein {
+	/* Firefox */
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
+@-webkit-keyframes fadein {
+	/* Safari and Chrome */
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
+@-o-keyframes fadein {
+	/* Opera */
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
+
+a:hover {
+	background-image: linear-gradient(rgb(0 0 0/40%) 0 0);
+}
+
+#ordersDiv {
+	width: 100vw;
+	height: 40%;
+	display: flex;
+	justify-content: center;
+}

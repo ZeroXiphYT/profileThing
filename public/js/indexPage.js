@@ -5,7 +5,7 @@ const userOrderLink = document.getElementById('userOrderLink');
 
 var colorArray = ["primary", "secondary", "success", "info", "dark"];
 
-function setRandomClass(element, colorArray) {
+function bootstrapClass(element, colorArray) {
     element.removeAttribute('class');
     var randomIndex = Math.floor(Math.random() * (colorArray.length - 0) + 0);
     var color = colorArray[randomIndex];
@@ -13,7 +13,7 @@ function setRandomClass(element, colorArray) {
     element.classList.add(`btn-${color}`);
 }
 
-setRandomClass(orderLink, colorArray);
-setRandomClass(createLink, colorArray);
-setRandomClass(createOrderLink, colorArray);
-setRandomClass(userOrderLink, colorArray);
+bootstrapClass(orderLink, colorArray);
+bootstrapClass(createLink, colorArray);
+bootstrapClass(createOrderLink, colorArray);
+bootstrapClass(userOrderLink, colorArray);
